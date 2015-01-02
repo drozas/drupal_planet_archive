@@ -8,7 +8,7 @@
 
 Notes: 
  <ul>
-  <li>This archive has been designed for researching purposes for the <a href="http://www.surrey.ac.uk/sociology/people/phd/david_rozas/index.htm">PhD thesis: "Drupal as Commons-Based Peer Production community: an ethnographic perspective"</a>. SOME OF THE POSTS WHICH MIGHT HAVE BEEN PUBLISHED IN DRUPAL PLANET DURING THIS PERIOD MIGHT NOT APPEAR IN THIS ARCHIVE.</li>
+  <li>This archive has been designed for researching purposes for the <a href="http://www.surrey.ac.uk/sociology/people/phd/david_rozas/index.htm">PhD thesis: "Drupal as a Commons-Based Peer Production community: an ethnographic perspective"</a>. SOME OF THE POSTS WHICH MIGHT HAVE BEEN PUBLISHED IN DRUPAL PLANET DURING THIS PERIOD MIGHT NOT APPEAR IN THIS ARCHIVE.</li>
   <li>Two different strategies are employed:</li>
  <ul>
   <li>A PHP script which periodically includes the new posts from Drupal Planet. This script was first run on 30/12/2014. From that date (including the previous 30 posts), the list should be exhaustive as far as no errors might have provoked the server to go down.</li>

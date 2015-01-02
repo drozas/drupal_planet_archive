@@ -3,7 +3,7 @@ Drupal Planet Archive
 
 Retrieve and display links from articles published at Drupal Planet (https://www.drupal.org/planet). Running instance available at: http://www.davidrozas.com/lab/drupal_planet_archive.php
 
-This archive has been designed for researching purposes for the PhD thesis: "Drupal as Commons-Based Peer Production community: an ethnographic perspective" (http://www.surrey.ac.uk/sociology/people/phd/david_rozas/index.htm). SOME OF THE POSTS WHICH MIGHT HAVE BEEN PUBLISHED IN DRUPAL PLANET DURING THIS PERIOD MIGHT NOT APPEAR IN THIS ARCHIVE.
+This archive has been designed for researching purposes for the PhD thesis: "Drupal as a Commons-Based Peer Production community: an ethnographic perspective" (http://www.surrey.ac.uk/sociology/people/phd/david_rozas/index.htm). SOME OF THE POSTS WHICH MIGHT HAVE BEEN PUBLISHED IN DRUPAL PLANET DURING THIS PERIOD MIGHT NOT APPEAR IN THIS ARCHIVE.
 
 Two different strategies are employed:
  - A PHP script which periodically includes the new posts from Drupal Planet. This script was first run on 30/12/2014. From that date (including the previous 30 posts), the list should be exhaustive as far as no errors might have provoked the server to go down.

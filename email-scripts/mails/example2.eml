@@ -1,0 +1,32 @@
+X-Mozilla-Status: 0000
+X-Mozilla-Status2: 00000000
+X-Mozilla-Keys:                                                                                
+Date: Tue, 23 Sep 2014 15:22:08 +0000
+Message-Id: <http://drupal.org/planet/rss.xml#Tue, 23 Sep 2014 15:22:08 +0000@localhost.localdomain>
+From: <Drupal Planet>
+MIME-Version: 1.0
+Subject: Acquia: Composer – Dependency Management in PHP
+Content-Transfer-Encoding: 8bit
+Content-Base: https://www.acquia.com/blog/composer-dependency-management-php
+Content-Type: text/html; charset=UTF-8
+
+<html>
+  <head>
+    <title>Acquia: Composer – Dependency Management in PHP</title>
+    <base href="https://www.acquia.com/blog/composer-dependency-management-php">
+  </head>
+  <body id="msgFeedSummaryBody" selected="false">
+    <div class="field field-name-body field-type-text-with-summary field-label-hidden">
+    <div class="field-items">
+          <div property="content:encoded" class="field-item even"><p>
+  Today's article is all about a fabulous tool for dependency management in your PHP projects. Composer solves the problem where you add a library to your application but it depends on this specific version of some other library, which also uses the yaml stuff, which needs ... you get the picture!
+</p>
+<p>
+  Composer helps us keep track of what external code our application relies on, and get it installed the right way on every copy of that application. This article will show you how to use Composer successfully in your own projects.
+</p></div>
+      </div>
+</div>
+<span property="dc:title" content="Composer – Dependency Management in PHP" class="rdf-meta"></span>
+  </body>
+</html>
+

@@ -1,7 +1,7 @@
 Drupal Planet Archive
 =====================
 
-Retrieve and display links from articles published at Drupal Planet (https://www.drupal.org/planet).
+Retrieve and display links from articles published at Drupal Planet (https://www.drupal.org/planet). Running instance available at: http://www.davidrozas.com/lab/drupal_planet_archive.php
 
 This archive has been designed for researching purposes for the PhD thesis: "Drupal as Commons-Based Peer Production community: an ethnographic perspective". SOME OF THE POSTS WHICH MIGHT HAVE BEEN PUBLISHED IN DRUPAL PLANET DURING THIS PERIOD MIGHT NOT APPEAR IN THIS ARCHIVE.
 

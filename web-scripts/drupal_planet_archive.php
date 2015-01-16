@@ -67,7 +67,7 @@ if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
 		$link = '<a href="' . $row["item_url"] . '" target="_blank">' . $row["item_url"] . '</a>';
-        echo "<tr><td>".$row["item_id"]."</td><td>".$row["item_title"]."</td><td>".$link."</td><td>".$row["item_date"]."</td><td>".$row["fetch_date"]."</td></tr>";
+        echo "<tr><td>".$row["item_id"]."</td><td>".utf8_decode($row["item_title"])."</td><td>".$link."</td><td>".$row["item_date"]."</td><td>".$row["fetch_date"]."</td></tr>";
     }
     echo "</table>";
 } else {

@@ -26,6 +26,9 @@ $db_hostname = "yourdatabaseserverhere";
 $db_username = "yourusernamehere";
 $db_password = "yourpasswordhere";
 
+//Setting default timezone
+date_default_timezone_set('Europe/Madrid');
+
 
 // Variables for counter
 $tbl_name = "executions"; // Table name 

@@ -27,10 +27,12 @@ $db_hostname = "localhost";
 $db_username = "XXXX";
 $db_password = "XXXX";
 $db_database = "XXXX";
-$private_access_key="XXXX";
 
 // Variables for tables
 $tbl_entries = "rssingest";
+
+// Counter
+$new_entries = 0;
 
 //Setting timezone
 date_default_timezone_set('Europe/Madrid');
@@ -49,8 +51,6 @@ try
 		printf("Connect failed: %s\n", $mysqli->connect_error);
 		exit();
 	}
-	
-	echo "Starting to work with feed URL '" . $feed_url . "'";
 	
 	libxml_use_internal_errors(true);
 	$RSS_DOC = simpleXML_load_file($feed_url);
@@ -77,29 +77,20 @@ try
 		$item_title = $RSSitem->title;
 		$item_date  = date("Y-m-j G:i:s", strtotime($RSSitem->pubDate));
 		$item_url	= $RSSitem->link;
-	
-		echo "Processing item '" , $item_id , "' on " , $fetch_date 	, "<br/>";
-		echo $item_title, " - ";
-		echo $item_date, "<br/>";
-		echo $item_url, "<br/>";
-	
+
 		// Insert the item only if it does not exist already (based on hash key)
 		$item_exists_sql = "SELECT item_id FROM " . $tbl_entries . " where item_id = '" . $item_id . "'";
-		echo "Exec " . $item_exists_sql ."<br/>";
 		//$item_exists = mysql_num_rows (mysql_query($item_exists_sql, $db));
-		if(mysqli_num_rows($mysqli->query($item_exists_sql)) >=1)
+		if(mysqli_num_rows($mysqli->query($item_exists_sql)) <1)
 		{
-			echo "<font color=blue>Not inserting existing item..</font><br/>";
-		}else{
-			echo "<font color=green>Inserting new item..</font><br/>";
+			echo "# New entry will be added: ". $item_title . "(" . $item_url .") \n.";
 			$item_insert_sql = "INSERT INTO " . $tbl_entries . "(item_id, feed_url, item_title, item_date, item_url, fetch_date) VALUES ('" . $item_id . "', '" . $feed_url . "', '" . $item_title . "', '" . $item_date . "', '" . $item_url . "', '" . $fetch_date . "')";
-			echo "Exec " . $item_insert_sql ."<br/>";
-			$res = $mysqli->query($item_insert_sql);
-			echo "Exec " . $res ."<br/>";
+			$mysqli->query($item_insert_sql);
+			$new_entries++;
 		}
-		echo "<br/>";
 	}	
 	
+	echo "---> Drupal Archive cron successfully executed. ". $new_entries . " new entries added in this run \n.";
 	$mysqli->close();
 } catch (Exception $e) {
 	echo 'Caught exception: ',  $e->getMessage(), "\n";

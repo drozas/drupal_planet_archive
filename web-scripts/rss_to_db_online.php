@@ -30,7 +30,6 @@ $db_database = "XXXX";
 $private_access_key="XXXX";
 
 // Variables for tables
-$tbl_name="executions"; // Table name
 $tbl_entries = "rssingest";
 
 //Setting timezone

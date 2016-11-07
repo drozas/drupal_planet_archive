@@ -86,7 +86,7 @@ try
 		//echo "DEB: exist " . $exist. "\n";
 		if(mysqli_num_rows($mysqli->query($item_exists_sql)) <1)
 		{
-			echo "# New entry will be added: ". $item_title . "(" . $item_url .") \n.";
+			echo "# New entry will be added: ". $item_title . "(" . $item_url .") \n";
 			$item_insert_sql = "INSERT INTO " . $tbl_entries . "(item_id, feed_url, item_title, item_date, item_url, fetch_date) VALUES ('" . $item_id . "', '" . $feed_url . "', '" . $item_title . "', '" . $item_date . "', '" . $item_url . "', '" . $fetch_date . "')";
 			//echo "DEB: running " . $item_insert_sql . "\n";
 			$res = $mysqli->query($item_insert_sql);

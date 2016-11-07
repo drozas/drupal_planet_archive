@@ -24,9 +24,10 @@
 
 // Credentials
 $db_hostname = "localhost";
-$db_username = "XXXX";
-$db_password = "XXXX";
-$db_database = "XXXX";
+$db_username = "xxxxx";
+$db_password = "xxxxx";
+$db_database = "xxxxx";
+
 
 // Variables for tables
 $tbl_entries = "rssingest";
@@ -70,22 +71,26 @@ try
 	
 	// Loop through each item in the RSS document
 	foreach($RSS_DOC->channel->item as $RSSitem)
-	{
-	
-		$item_id 	= md5($RSSitem->title);
+	{	
+		$item_title = str_replace("'", "++", $RSSitem->title);
+		$item_id 	= md5($item_title);
 		$fetch_date = date("Y-m-j G:i:s"); //NOTE: we don't use a DB SQL function so its database independent
-		$item_title = $RSSitem->title;
 		$item_date  = date("Y-m-j G:i:s", strtotime($RSSitem->pubDate));
 		$item_url	= $RSSitem->link;
 
 		// Insert the item only if it does not exist already (based on hash key)
 		$item_exists_sql = "SELECT item_id FROM " . $tbl_entries . " where item_id = '" . $item_id . "'";
+		//echo "DEB: running " . $item_exists_sql. "\n";
 		//$item_exists = mysql_num_rows (mysql_query($item_exists_sql, $db));
+		//$exist = mysqli_num_rows($mysqli->query($item_exists_sql));
+		//echo "DEB: exist " . $exist. "\n";
 		if(mysqli_num_rows($mysqli->query($item_exists_sql)) <1)
 		{
 			echo "# New entry will be added: ". $item_title . "(" . $item_url .") \n.";
 			$item_insert_sql = "INSERT INTO " . $tbl_entries . "(item_id, feed_url, item_title, item_date, item_url, fetch_date) VALUES ('" . $item_id . "', '" . $feed_url . "', '" . $item_title . "', '" . $item_date . "', '" . $item_url . "', '" . $fetch_date . "')";
-			$mysqli->query($item_insert_sql);
+			//echo "DEB: running " . $item_insert_sql . "\n";
+			$res = $mysqli->query($item_insert_sql);
+			//echo "DEB: res " . $res . "\n";
 			$new_entries++;
 		}
 	}	

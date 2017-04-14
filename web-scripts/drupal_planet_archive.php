@@ -1,10 +1,13 @@
 <html>
  <head>
   <title>Drupal Planet: links archive (29/10/2013 - ...)</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
  </head>
  <body>
 
+
 <h1>Drupal Planet: links archive (29/10/2013 - ...)</h1>
+
 
 Notes: 
  <ul>
@@ -14,7 +17,7 @@ Notes:
   <li>A PHP script which periodically includes the new posts from Drupal Planet. This script was first run on 30/12/2014. From that date (including the previous 30 posts), the list should be exhaustive as far as no errors might have provoked the server to go down.</li>
   <li>A Python script to recover the blog posts fetched via the RSS reader of Thunderbird. The source were a set of .eml files parsed and included into the database. These came from several machines and were merged. However, some of the blog posts might not have been gathered (e.g.: if the e-mail client was not run for a while). Therefore, the list regarding the previous period might not be so exhaustive and some of the posts might have gotten lost. More links (up to March 2013) will be added soon.</li>
 </ul> 
-  <li>The source code <a href="https://github.com/drozas/drupal_planet_archive">can be found in GitHub</a> under a GPLv3 license.</li>
+  <li>The source code <a href="https://github.com/drozas/drupal_planet_archive">can be found in GitHub</a> under a GPLv3 license. CSS adapted from <a href="https://codepen.io/anon/pen/vmEaNB"> captain Anonymous</a>.</li>
 
   <li>If you have any comments/suggestions/feedback, please do not hesitate to contact me at: drozas (at) surrey (dot) ac (dot) uk</li>
 </ul> 
@@ -43,10 +46,10 @@ Notes:
  *
  */
 
-$db_hostname = "yourdatabaseserverhere";
-$db_username = "yourusernamehere";
-$db_password = "yourpasswordhere";
-$db_name = "yourdatabasenamehere";
+$db_hostname = "xxx";
+$db_username = "yyy";
+$db_password = "zzz";
+$db_name = "www";
 
 
 try
@@ -63,13 +66,15 @@ $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
 	echo '<h2>Total number of posts: ' . $result->num_rows .'</h2>';
-    echo "<table border=1><tr><th>ID</th><th>Post title</th><th>URL</th><th>Post date</th><th>Fetched on</th></tr>";
+    echo "<table class=\"table-fill\" border=1><tr><th class=\"text-left\">ID</th><th class=\"text-left\">Post title</th><th>Post date</th><th class=\"text-left\">Fetched on</th></tr>";
     // output data of each row
+    echo '<tbody class="table-hover">';
     while($row = $result->fetch_assoc()) {
-		$link = '<a href="' . $row["item_url"] . '" target="_blank">' . $row["item_url"] . '</a>';
-        echo "<tr><td>".$row["item_id"]."</td><td>".utf8_decode($row["item_title"])."</td><td>".$link."</td><td>".$row["item_date"]."</td><td>".$row["fetch_date"]."</td></tr>";
+		$link = '<a href="' . $row["item_url"] . '" target="_blank">' . utf8_decode($row["item_title"]) . '</a>';
+        echo '<tr><td class=\"text-left\">' . $row['item_id'] . '</td><td class=\"text-left\">' . $link . '</td>' .
+ 		'<td class=\"text-left\">' .$row['item_date']. '</td><td class=\"text-left\">' .$row['fetch_date'] . '</td></tr>';
     }
-    echo "</table>";
+    echo "</tbody></table>";
 } else {
     echo "There are not any articles.";
 }
